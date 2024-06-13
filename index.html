@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>AuWoof Pet</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <form id="form">
+        <label for="date">Data:</label>
+        <input type="date" name="date" id="date">
+        <label for="smallDog">Quantidade de cachorros pequenos:</label>
+        <input type="number" name="smallDog" id="smallDog">
+        <label for="bigDog">Quantidade de cachorros grandes:</label>
+        <input type="number" name="bigDog" id="bigDog">
+        <input type="submit" value="Enviar">
+    </form>
+    <p id="result"></p>
+    <script>
+        document.getElementById("form").addEventListener("submit", function(event){
+            event.preventDefault();
+            let date = document.getElementById("date").value;
+            //console.log();
+            let smallDog = document.getElementById("smallDog").value;
+            let bigDog = document.getElementById("bigDog").value;
+            fetch("/bestprice?smallDog=" + smallDog + "&bigDog=" + bigDog + "&date=" + date).then(result => result.json()).then(data => {
+                document.getElementById("result").innerHTML = "Petshop: " + data.namePetShop + " Valor: R$" + data.totalPrice + " Distância: " + data.distanceShop + " km";
+            });
+        });
+    </script>
+</body>
+</html>
