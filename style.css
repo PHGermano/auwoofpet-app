@@ -1,7 +1,94 @@
-html{
-    background-color: lightgrey;
+html {
+  background-image: url(Paw_Pattern.jpg);
+  background-repeat: repeat;
+  font-family: Arial Narrow, sans-serif;
+}
+
+h1 {
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+p {
+  font-family: Arial Narrow, sans-serif;
+}
+
+#show-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 18px;
+}
+
+#form-container {
+  background-color: bisque;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  align-items: center;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+#submit-container {
+  text-align: center;
+}
+
+#result-container {
+  background-color: bisque;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  padding: 15px;
+  margin: 0 auto;
+  margin-top: 5px;
 }
 
 input {
-    width: 100%;
-  }
+  border-radius: 5px;
+  border: none;
+}
+
+input[type="number"] {
+  width: 50px;
+  height: 18px;
+  margin: 5px;
+}
+
+input[type="submit"] {
+  width: 100px;
+  height: 30px;
+  margin: 5px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  background-color: #5e3200;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+input[type="date"] {
+  background-color: #5e3200;
+  padding: 4px;
+  font-family: "Roboto Mono", monospace;
+  color: white;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator {
+  background-color: white;
+  padding: 2px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+hr.solid {
+  border-top: 3px solid #5e3200;
+  width: 320px;
+  margin-bottom: 2px;
+}

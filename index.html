@@ -6,16 +6,29 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <form id="form">
-        <label for="date">Data:</label>
-        <input type="date" name="date" id="date">
-        <label for="smallDog">Quantidade de cachorros pequenos:</label>
-        <input type="number" name="smallDog" id="smallDog">
-        <label for="bigDog">Quantidade de cachorros grandes:</label>
-        <input type="number" name="bigDog" id="bigDog">
-        <input type="submit" value="Enviar">
-    </form>
-    <p id="result"></p>
+    <div id="show-container">
+        <div id="form-container">
+            <h1>AuWoof Pet</h1>
+            <hr class="solid">
+            <p>Beleza e cuidado para todos os pets!</p>
+            <p>Buscador de melhor preço</p>
+        <form id="form">
+            <label for="date">Data do banho: </label>
+            <input type="date" name="date" id="date"><br><br>
+            <label for="smallDog">Quantidade de cachorros pequenos: </label>
+            <input type="number" name="smallDog" id="smallDog"><br><br>
+            <label for="bigDog">Quantidade de cachorros grandes: </label>
+            <input type="number" name="bigDog" id="bigDog"><br><br>
+            <div id="submit-container">
+                <input type="submit" value="Buscar">
+            </div>
+        </form>
+        </div>
+        <div id="result-container">
+            <p>Resultado da busca</p>
+            <p id="result">Nenhuma busca realizada.</p>
+        </div>
+    </div>
     <script>
         document.getElementById("form").addEventListener("submit", function(event){
             event.preventDefault();
@@ -24,7 +37,7 @@
             let smallDog = document.getElementById("smallDog").value;
             let bigDog = document.getElementById("bigDog").value;
             fetch("/bestprice?smallDog=" + smallDog + "&bigDog=" + bigDog + "&date=" + date).then(result => result.json()).then(data => {
-                document.getElementById("result").innerHTML = "Petshop: " + data.namePetShop + " Valor: R$" + data.totalPrice + " Distância: " + data.distanceShop + " km";
+                document.getElementById("result").innerHTML = "Petshop: " + data.namePetShop + "<br>Valor: R$" + data.totalPrice + "<br>Distância: " + data.distanceShop + " km";
             });
         });
     </script>
